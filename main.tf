@@ -18,7 +18,7 @@ provider "aws" {
 
 resource "aws_key_pair" "key" {
     key_name = "terraform-key"
-    public_key = file("terr_aws_key.pub")
+    public_key = file("aws_terraform_key.pub")
 }
 
 # resource "aws_instance" "kube_slave" {
