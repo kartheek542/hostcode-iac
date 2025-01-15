@@ -70,7 +70,7 @@ resource "aws_instance" "reactjs_server" {
     key_name = aws_key_pair.key.key_name
     vpc_security_group_ids = [aws_security_group.vpc_sg.id]
     subnet_id = aws_subnet.instance_subnet.id
-    private_ip = var.master_private_ip
+    private_ip = var.reactjs_private_ip
     user_data = file("ec2-setup.sh")
     associate_public_ip_address = true 
 
@@ -81,7 +81,7 @@ resource "aws_instance" "reactjs_server" {
     }
 
     tags = {
-        Name = var.master_instance_name
+        Name = var.reactjs_instance_name
     }
 }
 
@@ -91,7 +91,7 @@ resource "aws_instance" "nodejs_server" {
     key_name = aws_key_pair.key.key_name
     vpc_security_group_ids = [aws_security_group.vpc_sg.id]
     subnet_id = aws_subnet.instance_subnet.id
-    private_ip = var.master_private_ip
+    private_ip = var.nodejs_private_ip
     user_data = file("ec2-setup.sh")
     associate_public_ip_address = true 
 
@@ -102,6 +102,6 @@ resource "aws_instance" "nodejs_server" {
     }
 
     tags = {
-        Name = var.master_instance_name
+        Name = var.nodejs_instance_name
     }
 }

@@ -28,6 +28,18 @@ variable "master_instance_name" {
     default = "kube-master"
 }
 
+variable "nodejs_instance_name" {
+    description = "Name of the node instance"
+    type = string 
+    default = "hostcode-nodejs"
+}
+
+variable "reactjs_instance_name" {
+    description = "Name of the react instance"
+    type = string 
+    default = "hostcode-reactjs"
+}
+
 variable "rem_instance_names" {
     description = "Name of the remaining instances"
     type = list(string)
@@ -40,8 +52,20 @@ variable "master_private_ip" {
     default = "10.0.1.10"
 }
 
+variable "nodejs_private_ip" {
+    description = "Private IP of the nodejs instance"
+    type = string
+    default = "10.0.1.14"
+}
+
+variable "reactjs_private_ip" {
+    description = "Private IP of the reactjs instance"
+    type = string
+    default = "10.0.1.13"
+}
+
 variable "rem_private_ips" {
     description = "Private IPs of remaining instances"
     type = list(string)
-    default = [ "10.0.1.11", "10.0.1.12", "10.0.1.13", "10.0.1.14" ]
+    default = [ "10.0.1.11", "10.0.1.12" ]
 }
