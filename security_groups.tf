@@ -20,42 +20,26 @@ resource "aws_vpc_security_group_ingress_rule" "port_22" {
     cidr_ipv4 = "0.0.0.0/0"
 }
 
-resource "aws_vpc_security_group_ingress_rule" "port_2377" {
+resource "aws_vpc_security_group_ingress_rule" "port_2397_80" {
     security_group_id = aws_security_group.vpc_sg.id
-    from_port = 2377
-    to_port = 2377
+    from_port = 2379
+    to_port = 2380
     ip_protocol = "tcp"
     cidr_ipv4 = "10.0.1.0/24"
 }
 
-resource "aws_vpc_security_group_ingress_rule" "port_7946" {
+resource "aws_vpc_security_group_ingress_rule" "port_6443" {
     security_group_id = aws_security_group.vpc_sg.id
-    from_port = 7946
-    to_port = 7946
+    from_port = 6443
+    to_port = 6443
     ip_protocol = "tcp"
     cidr_ipv4 = "10.0.1.0/24"
 }
 
-resource "aws_vpc_security_group_ingress_rule" "port_4789" {
+resource "aws_vpc_security_group_ingress_rule" "port_10250_60" {
     security_group_id = aws_security_group.vpc_sg.id
-    from_port = 4789
-    to_port = 4789
-    ip_protocol = "tcp"
-    cidr_ipv4 = "10.0.1.0/24"
-}
-
-resource "aws_vpc_security_group_ingress_rule" "port_9200" {
-    security_group_id = aws_security_group.vpc_sg.id
-    from_port = 9200
-    to_port = 9200
-    ip_protocol = "tcp"
-    cidr_ipv4 = "10.0.1.0/24"
-}
-
-resource "aws_vpc_security_group_ingress_rule" "port_8228" {
-    security_group_id = aws_security_group.vpc_sg.id
-    from_port = 8288
-    to_port = 8288
+    from_port = 10250
+    to_port = 10260
     ip_protocol = "tcp"
     cidr_ipv4 = "10.0.1.0/24"
 }
