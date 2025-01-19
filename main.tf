@@ -24,7 +24,7 @@ resource "aws_key_pair" "key" {
 resource "aws_instance" "kube_slave" {
     count = 2
     ami = var.ami_id
-    instance_type = var.instance_type
+    instance_type = "t2.medium"
     key_name = aws_key_pair.key.key_name
     vpc_security_group_ids = [aws_security_group.vpc_sg.id]
     subnet_id = aws_subnet.instance_subnet.id 
@@ -45,7 +45,7 @@ resource "aws_instance" "kube_slave" {
 
 resource "aws_instance" "kube_master" {
     ami = var.ami_id
-    instance_type = var.instance_type
+    instance_type = "t2.medium"
     key_name = aws_key_pair.key.key_name
     vpc_security_group_ids = [aws_security_group.vpc_sg.id]
     subnet_id = aws_subnet.instance_subnet.id
@@ -66,7 +66,7 @@ resource "aws_instance" "kube_master" {
 
 # resource "aws_instance" "reactjs_server" {
 #     ami = var.ami_id
-#     instance_type = var.instance_type
+#     instance_type = "t2.medium"
 #     key_name = aws_key_pair.key.key_name
 #     vpc_security_group_ids = [aws_security_group.vpc_sg.id]
 #     subnet_id = aws_subnet.instance_subnet.id
@@ -87,7 +87,7 @@ resource "aws_instance" "kube_master" {
 
 # resource "aws_instance" "nodejs_server" {
 #     ami = var.ami_id
-#     instance_type = var.instance_type
+#     instance_type = "t2.medium"
 #     key_name = aws_key_pair.key.key_name
 #     vpc_security_group_ids = [aws_security_group.vpc_sg.id]
 #     subnet_id = aws_subnet.instance_subnet.id
