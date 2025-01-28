@@ -22,7 +22,7 @@ resource "aws_key_pair" "key" {
 }
 
 resource "aws_instance" "kube_slave" {
-    count = 2
+    count = 1
     ami = var.ami_id
     instance_type = "t2.medium"
     key_name = aws_key_pair.key.key_name
