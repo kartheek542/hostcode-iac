@@ -85,23 +85,23 @@ resource "aws_instance" "kube_master" {
 #     }
 # }
 
-# resource "aws_instance" "nodejs_server" {
-#     ami = var.ami_id
-#     instance_type = "t2.medium"
-#     key_name = aws_key_pair.key.key_name
-#     vpc_security_group_ids = [aws_security_group.vpc_sg.id]
-#     subnet_id = aws_subnet.instance_subnet.id
-#     private_ip = var.nodejs_private_ip
-#     user_data = file("ec2-setup.sh")
-#     associate_public_ip_address = true 
-# 
-#     ebs_block_device {
-#       device_name = "/dev/xvde"
-#       delete_on_termination = true
-#       volume_size = 10
-#     }
-# 
-#     tags = {
-#         Name = var.nodejs_instance_name
-#     }
-# }
+resource "aws_instance" "nodejs_server" {
+    ami = var.ami_id
+    instance_type = "t2.medium"
+    key_name = aws_key_pair.key.key_name
+    vpc_security_group_ids = [aws_security_group.vpc_sg.id]
+    subnet_id = aws_subnet.instance_subnet.id
+    private_ip = var.nodejs_private_ip
+    user_data = file("ec2-setup.sh")
+    associate_public_ip_address = true 
+
+    ebs_block_device {
+      device_name = "/dev/xvde"
+      delete_on_termination = true
+      volume_size = 10
+    }
+
+    tags = {
+        Name = var.nodejs_instance_name
+    }
+}

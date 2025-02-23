@@ -12,8 +12,8 @@ output "kube_slave_public_ip" {
 #     description = "Public IPs of reactjs instance"
 #     value = aws_instance.reactjs_server.public_ip
 # }
-# 
-# output "nodejs_public_ip" {
-#     description = "Public IPs of nodejs instance"
-#     value = aws_instance.nodejs_server.public_ip
-# }
+
+output "nodejs_public_ip" {
+    description = "Public IPs of nodejs instance"
+    value = aws_instance.nodejs_server.public_ip
+}
