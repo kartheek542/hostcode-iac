@@ -4,12 +4,28 @@ resource "aws_security_group" "vpc_sg" {
     vpc_id = aws_vpc.main.id
 }
 
+resource "aws_vpc_security_group_ingress_rule" "outside_port_80" {
+    security_group_id = aws_security_group.vpc_sg.id
+    from_port = 80
+    to_port = 80
+    ip_protocol = "tcp"
+    cidr_ipv4 = "0.0.0.0/0"
+}
+
+resource "aws_vpc_security_group_ingress_rule" "outside_port_443" {
+    security_group_id = aws_security_group.vpc_sg.id
+    from_port = 443
+    to_port = 443
+    ip_protocol = "tcp"
+    cidr_ipv4 = "0.0.0.0/0"
+}
+
 resource "aws_vpc_security_group_ingress_rule" "ports_with_80" {
     security_group_id = aws_security_group.vpc_sg.id
     from_port = 8080
     to_port = 8085
     ip_protocol = "tcp"
-    cidr_ipv4 = "0.0.0.0/0"
+    cidr_ipv4 = "10.0.1.0/24"
 }
 
 resource "aws_vpc_security_group_ingress_rule" "port_22" {
